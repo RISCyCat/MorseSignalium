@@ -1,0 +1,14 @@
+All Rights Reserved
+
+Copyright (c) 2025 RISCyCat64
+
+This software and all associated documentation files (the "Software") are the
+exclusive property of the copyright holder. No part of the Software may be
+copied, reproduced, modified, distributed, transmitted, displayed, performed,
+or otherwise used in any manner whatsoever without the express prior written
+permission of the copyright holder.
+
+Any unauthorized use, duplication, or distribution of this Software is strictly
+prohibited and may result in civil and criminal penalties under applicable law.
+
+For inquiries or permission requests, please contact: RISCyCat64 (GitHub)

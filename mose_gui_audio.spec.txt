@@ -1,0 +1,79 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+block_cipher = None
+
+a = Analysis(
+    ['morse_gui_audio.py'],
+    pathex=[],
+    binaries=[],
+    datas=[],
+    hiddenimports=[],
+    hookspath=[],
+    runtime_hooks=[],
+    excludes=[],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=block_cipher,
+)
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+exe = EXE(
+    pyz,
+    a.scripts,
+    [],
+    exclude_binaries=True,
+    name='morse_gui_audio',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    console=False,
+)
+coll = COLLECT(exe, a.binaries, a.zipfiles, a.datas, strip=False, upx=True, name='morse_gui_audio')
+
+# -*- mode: python ; coding: utf-8 -*-
+
+block_cipher = None
+
+a = Analysis(
+    ['morse_gui_audio.py'],
+    pathex=[],
+    binaries=[],
+    datas=[],
+    hiddenimports=[],
+    hookspath=[],
+    runtime_hooks=[],
+    excludes=[],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=block_cipher,
+)
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+exe = EXE(
+    pyz,
+    a.scripts,
+    [],
+    exclude_binaries=True,
+    name='morse_gui_audio',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    console=False,
+)
+coll = COLLECT(exe, a.binaries, a.zipfiles, a.datas, strip=False, upx=True, name='morse_gui_audio')
+
+
+import unicodedata
+
+def normalize_text_for_morse(s: str) -> str:
+    # decomposes accents and strips them -> 'Ș' -> 'S' etc.
+    s = unicodedata.normalize('NFKD', s)
+    s = ''.join(c for c in s if not unicodedata.combining(c))
+    # german ß -> ss
+    s = s.replace('ß', 'ss')
+    # optional: map Ä->AE etc. if preferi
+    s = s.replace('Ä', 'AE').replace('ä', 'ae') \
+         .replace('Ö', 'OE').replace('ö','oe') \
+         .replace('Ü','UE').replace('ü','ue')
+    return s.upper()
+
